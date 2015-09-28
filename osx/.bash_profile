@@ -10,7 +10,8 @@ alias go-theme="cd /Users/debeasi/Projects/stat/branches/ryan/www/content/dist/t
 alias pugdebug="python3 /Users/debeasi/Projects/pugdebug/app.py"
 
 # Version control shortcuts
-alias sl="svn log | less"
-alias ss="svn stat"
-alias sd="svn diff"
-alias sc="svn commit"
+alias snl="svn log | less"
+alias sns="svn stat"
+alias snd="svn diff"
+alias snc="svn commit"
+alias snu="svn up"
