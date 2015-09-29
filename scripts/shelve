@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Simple equivalent of "git stash" in Subversion.
+# This doesn't require creating branches (which can get messy) or using patches
+# (which doesn't work if a visual diff tool is configured).
+#
+# Known issues: 
+# - When given a wildcard, the command only shelves the first file it finds.
+# - Restoring from shelf is a manual process.
+# - File paths aren't preserved.
+# More ideas: http://stackoverflow.com/q/1554278/925475
+
+# If any comamand fails, abort the script.
+set -e
+
+# Feel free to change this path to a directory of your choosing.
+shelf=~/Projects/shelf
+
+current_time=$(date "+%Y.%m.%d-%H.%M.%S")
+filename=$(basename $1)
+new_name=$filename-$current_time
+
+if  [ -z "$1" ]; then
+  echo "Please specify the name of the file to shelve."
+else
+  cp $1 $shelf
+  # We're copying and *then* renaming rather than just doing one mv command so
+  # that text editors that have the file open don't start looking at the shelved
+  # version.
+  mv $shelf/$filename $shelf/$new_name
+  echo "Copied '$filename' to '$shelf/$new_name'."
+  svn revert $1
+fi
