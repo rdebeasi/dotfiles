@@ -11,7 +11,10 @@ alias pugdebug="python3 /Users/debeasi/Projects/pugdebug/app.py"
 
 # Version control shortcuts
 alias snl="svn log | less"
-alias sns="svn stat"
-alias snd="svn diff"
-alias snc="svn commit"
-alias snu="svn up"
+alias sni="svn propedit svn:ignore ."
+
+# Do we really need these?
+# alias sns="svn stat"
+# alias snd="svn diff"
+# alias snc="svn commit"
+# alias snu="svn up"
