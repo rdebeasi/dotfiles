@@ -8,6 +8,8 @@ export PATH
 alias pugdebug="python3 /Users/debeasi/Projects/pugdebug/app.py"
 # SSH log utility - http://git.io/vcu0P
 alias vagrant-tail="sshtail.sh vagrant@wp.stat.local /var/log/apache2/wp.stat.local.err ~/logs/wp.stat.log"
+# Compile SASS in the style that wondersauce uses
+alias wondersass="sass --watch ./scss/style.scss:./css/style.css -t expanded --line-numbers"
 
 # Version control shortcuts
 snl() {
@@ -19,6 +21,12 @@ snc() {
   else
     svn commit -m "$1"
   fi
+}
+
+# Use a visual merge tool for diffs. I'm not configuring svn do this because
+# sometimes I actually do want to generate text-based diffs.
+snd() {
+  svn diff "$@" --diff-cmd=meld
 }
 
 alias snr="svn revert * --depth infinity; svn revert ."
