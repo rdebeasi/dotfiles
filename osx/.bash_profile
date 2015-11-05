@@ -32,8 +32,8 @@ snd() {
 alias snr="svn revert * --depth infinity; svn revert ."
 alias sni="svn propedit svn:ignore ."
 # Remove all unversioned files. Leave ignored files alone.
-# Modified version of: http://stackoverflow.com/a/9144984/925475
-alias svn-cleanup="svn status | grep '^[I?]' | cut -c 9- | while IFS= read -r f; do rm -rf "$f"; done"
+# http://stackoverflow.com/a/10414599/925475
+alias svn-cleanup="svn st | grep '^?' | awk '{print $2}' | xargs rm -rf"
 # Add all unversioned files in the current directory and subdirectories.
 # Props to https://github.com/hirozed
 alias sna="svn status | grep "^\?" | awk '{print $2}' | xargs svn add"
