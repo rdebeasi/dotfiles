@@ -39,6 +39,8 @@ open-project() {
   cd www/content/dist
   atom .
   grunt
+  # This way, I can make sure there aren't any errant VMs running around wild.
+  vagrant global-status
 }
 
 gogo-ryan-theme() {
@@ -84,7 +86,7 @@ snd() {
   svn diff "$@" --diff-cmd=meld
 }
 
-alias snr="svn revert * --depth infinity; svn revert ."
+alias svn-revertall="svn revert * --depth infinity; svn revert ."
 alias sni="svn propedit svn:ignore ."
 # Remove all unversioned files. Leave ignored files alone.
 # http://stackoverflow.com/a/10414599/925475
