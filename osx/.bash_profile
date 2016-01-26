@@ -43,29 +43,16 @@ open-project() {
   vagrant global-status
 }
 
-gogo-ryan-theme() {
-  pwd | sed "s/^/Current path: /"
-  grunt stop
-  cd ~/Projects/stat/branches/ryan-theme
-  merge-from-theme
-  open-project
-}
-
-gogo-ryan-theme-mk2() {
-  pwd | sed "s/^/Current path: /"
-  grunt stop
-  cd ~/Projects/stat/branches/ryan-theme-mk2
-  merge-from-theme
-  open-project
-}
-
-gogo-theme() {
-  pwd | sed "s/^/Current path: /"
-  grunt stop
-  cd ~/Projects/stat/branches/theme
-  svn up
-  grunt
-  open-project
+gogo() {
+  if  [ -z "$1" ]; then
+    echo "Please include the name of the branch."
+  else
+    pwd | sed "s/^/Current path: /"
+    grunt stop
+    cd ~/Projects/stat/branches/$1
+    merge-from-theme
+    open-project
+  fi
 }
 
 # Version control shortcuts
