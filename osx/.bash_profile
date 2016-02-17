@@ -72,8 +72,13 @@ snd() {
 }
 
 # "svn revert all"
-alias sra="svn revert * --depth infinity; svn revert ."
-# svn ignore
+sra() {
+  read -p "Revert all changes (y/n)?"
+  	if [ $REPLY == "y" ]; then
+      svn revert * --depth infinity; svn revert .
+  	fi
+}
+
 alias sni="svn propedit svn:ignore ."
 # svn remove all unversioned files. Leave ignored files alone.
 # "svn remove unversioned"
