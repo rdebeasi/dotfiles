@@ -8,8 +8,6 @@ export PATH
 alias pugdebug="python3 /Users/debeasi/Projects/pugdebug/app.py"
 # SSH log utility - http://git.io/vcu0P
 alias vagrant-tail="sshtail.sh vagrant@wp.stat.local /var/log/apache2/wp.stat.local.err ~/logs/wp.stat.log"
-# Compile SASS in the style that wondersauce uses
-alias wondersass="sass --watch ./scss/:./css/ -t expanded --line-numbers"
 
 # Project switch shortcuts
 
@@ -73,11 +71,19 @@ snd() {
   svn diff "$@" --diff-cmd=meld
 }
 
-alias svn-revertall="svn revert * --depth infinity; svn revert ."
+# "svn revert all"
+alias sra="svn revert * --depth infinity; svn revert ."
+# svn ignore
 alias sni="svn propedit svn:ignore ."
-# Remove all unversioned files. Leave ignored files alone.
+# svn remove all unversioned files. Leave ignored files alone.
+# "svn remove unversioned"
 # http://stackoverflow.com/a/10414599/925475
-alias svn-cleanup="svn st | grep '^?' | awk '{print $2}' | xargs rm -rf"
+alias sru="svn st | grep '^?' | awk '{print $2}' | xargs rm -rf"
 # Add all unversioned files in the current directory and subdirectories.
+# "svn add unversioned"
 # Props to https://github.com/hirozed
-alias sna="svn status | grep "^\?" | awk '{print $2}' | xargs svn add"
+alias sau="svn status | grep "^\?" | awk '{print $2}' | xargs svn add"
+# Remove all missing files
+# "svn remove missing"
+# http://stackoverflow.com/a/11203174/925475
+alias srm="svn status | grep '^\!' | sed 's/! *//' | xargs -I% svn rm %"
