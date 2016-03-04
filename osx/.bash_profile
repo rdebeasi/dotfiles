@@ -7,7 +7,7 @@ export PATH
 # Application/utility shortcuts
 alias pugdebug="python3 /Users/debeasi/Projects/pugdebug/app.py"
 # SSH log utility - http://git.io/vcu0P
-alias vagrant-tail="sshtail.sh vagrant@wp.stat.local /var/log/apache2/wp.stat.local.err ~/logs/wp.stat.log"
+alias vagrant-tail="sshtail.sh vagrant@wp.stat.local /var/log/apache2/wp.stat.local.err ~/Library/Logs/ryan/wp.stat.log"
 
 # Project switch shortcuts
 
