@@ -1,7 +1,7 @@
 # Our vagrantfiles are in an unusual place
 export VAGRANT_VAGRANTFILE=conf/vagrant/Vagrantfile
 # Put custom scripts on the path
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin:/usr/local/bin/pear
 export PATH
 
 # Application/utility shortcuts
