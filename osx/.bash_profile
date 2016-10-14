@@ -4,11 +4,17 @@ export VAGRANT_VAGRANTFILE=conf/vagrant/Vagrantfile
 PATH=$PATH:$HOME/bin:/usr/local/bin/pear
 export PATH
 
+# Use nano for git commits and the like.
+# Look, I don't actually like vi _or_ emacs and I'm not afraid to admit it. ;)
+export VISUAL=nano
+export EDITOR="$VISUAL"
+
 # Application/utility shortcuts
 alias pugdebug="python3 /Users/debeasi/Projects/pugdebug/app.py"
 # SSH log utility - http://git.io/vcu0P
 alias vagrant-tail="sshtail.sh vagrant@wp.stat.local /var/log/apache2/wp.stat.local.err ~/Library/Logs/ryan/wp.stat.log"
-
+# https://github.com/syntra/small-cli
+source /Users/debeasi/.syntra/small
 # Project switch shortcuts
 
 merge-from-theme() {
