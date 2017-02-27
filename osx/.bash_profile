@@ -8,6 +8,8 @@ export PATH
 # Look, I don't actually like vi _or_ emacs and I'm not afraid to admit it. ;)
 export VISUAL=nano
 export EDITOR="$VISUAL"
+# Variable for STAT's Git/SVN sync tool (syncupstream.sh)
+export STAT_WP_GIT_ROOT=/Users/debeasi/Projects/stat/
 
 # Application/utility shortcuts
 alias pugdebug="python3 /Users/debeasi/Projects/pugdebug/app.py"
